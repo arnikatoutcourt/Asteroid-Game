@@ -296,5 +296,5 @@ void loop() {
   protothreadasteroids2(&(pt_asteroids[1]), asteroids[1]->delay);
   //Serial.print("PosX for 0: ");
   //Serial.println(asteroids[0]->x);
-  //protothreadstarship(&pt_starship);
+  protothreadstarship(&pt_starship);
 }
