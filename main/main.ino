@@ -286,7 +286,8 @@ static int protothreadstarship(struct pt *pt) {
   PT_BEGIN(pt);
   while (1) {
     joyX = analogRead(joyXpin);
-    PT_WAIT_UNTIL(pt, (joyX >= 200 && joyX <= 820));
+    PT_WAIT_UNTIL((pt, millis() - timestamp > 100) && (joyX>450 || joyX<600)); //100 = délai entre chaque mouvement du vaisseau
+    timestamp = millis();
     move_starship(&joyX);
   }
   PT_END(pt);
@@ -298,3 +299,4 @@ void loop() {
   //Serial.println(asteroids[0]->x);
   protothreadstarship(&pt_starship);
 }
+
